@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>本网站列举出IE6的 所有BUG,呼吁大家抵制IE6</title>
+    <link rel="stylesheet" href="../css/reset-kissy.css">
+    <link rel="stylesheet" href="../css/base-sherlock.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <meta charset="utf-8" />
+
+
+
+    <script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../js/browser-recognition.1.0.0.js"></script>
+
+    <!--[if lte IE 6]>
+        <script type="text/javascript" src="../js/DD_belatedPNG_0.0.8a-min.js"></script>
+        <script type="text/javascript">
+            $(function(){ DD_belatedPNG.fix('img,.bg-img');});
+        </script>
+
+
+    <![endif]-->
+
+
+
+
+    <!--[if lt IE 7]>
+             <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
+    <![endif]-->
+
+
+    <script type="text/javascript" src="../js/biz.js"></script>
+
+
+</head>
+<body>
+
+
+
+    <div id="head" style="font-size: 16px;">
+
+        <h1 class="center" style="width: 200px; font-size: 200%; margin-bottom: 30px; margin-top: 30px;">IE6 罪魁祸首</h1>
+
+        <p class="padding-example">
+            IE6 bug 来源于网络收集,我只是测试 + 演示.请在IE6环境下观看.<br>
+            win7 安装ie6 ,<a href="http://cdn.zi-han.net/file/IE6ForWin8.zip">http://cdn.zi-han.net/file/IE6ForWin8.zip</a><br/>
+            使用VM安装 xp 也可以
+        </p>
+    </div>
+
+    <div id="content" class="padding-example">
+
+            <!--奇数宽高BUG-->
+           <div id="example01" class="example">
+                <h1>1.奇数宽高BUG</h1>
+                <p>
+                    IE6真是太疯狂了。今天由于项目需要做了这么一个布局：一个外部的相对定位div，内部一个绝对定位的div
+                   <br/>外部div设置为奇数的宽度609px,会发现有1px差距.如果将外层div宽度设置为偶数610px,问题解决,在IE6下请<br/>点击下面的操作按钮<br/></p>
+                <h3>解决方案 : 就是将外部相对定位的div宽度改成偶数。高度也是一样的</h3>
+                <div class="example-main">
+                        <div class="out">
+                            <div class="inner">
+                            </div>
+                        </div>
+
+                </div>
+               <div class="example-util">
+                   <a href="javascript:void(0);" type="change"  status="0" class="btn-100 display-inline-block">改变成偶数</a>
+               </div>
+
+
+
+           </div>
+
+
+        <!--PNG ALPHA透明BUG-->
+        <div id="example02" class="example">
+            <h1>2.IE6中PNG Alpha</h1>
+            <p>
+                很多人说IE6不支持PNG透明，其实IE支持100%透明的PNG，疯狂的IE6只是不支持png的Alpha透明.比如半透明的PNG背景图片
+            </p>
+            <h3>解决方案 : 使用DD_belatePNG_0.0.8.js 支持PNG透明</h3>
+            <div class="example-main" >
+                <div class="display-inline-block">
+                    <span class="display-inline-block">我是标签</span>
+                    <img class="display-inline-block" src="../img/opacity.png"/>
+                </div>
+                 <div class="bg-img display-inline-block img01">
+
+                 </div>
+                <span class="display-inline-block">我是背景</span>
+            </div>
+            <div class="example-util " >
+                <a   href="javascript:void(0);" type="change"   class="btn-100 display-inline-block">改变背景颜色</a>
+            </div>
+
+        </div>
+
+
+
+        <!--IE 浮动3像素BUG -->
+        <div id="example03" class="example">
+            <h1>3.浮动3像素</h1>
+            <p>
+                3像素bug是IE6的一个著名的bug，当浮动元素与非浮动元素相邻时，这个3像素的Bug就会出现。看下面这个左列固定，右列液态的例子
+              </p>
+            <h3>解决方案 : 1.元素全部浮动 2.修正3px margin-right:-3px; 3.避免浮动布局 采用inline-block布局</h3>
+            <div class="example-main clearfix">
+                <div class="slide" >
+
+                </div>
+                <div class="main" >
+                </div>
+
+            </div>
+            <div class="example-util yui3-g "  >
+                <a href="javascript:void(0);" type="changeFloat"  status="0"  style="width: 33.33%;" class="btn-100 display-inline-block">浮动全部元素</a><a
+                    href="javascript:void(0);" type="changeMargin"  status="0" style="width: 33.33%;" class="btn-100 display-inline-block">margin修正</a><a
+                    href="javascript:void(0);" type="restore"  status="0" style="width: 33.33%;" class="btn-100 display-inline-block">重置</a>
+            </div>
+
+        </div>
+
+
+
+        <!--IE6 样式中 采用中文注释失效-->
+        <div id="example04" class="example">
+            <h1>4.IE6 样式中 采用中文注释失效</h1>
+            <p>
+                满足下面条件就会引起 注释下面的样式不起作用：<br/>1. css有中文注释
+                <br/>2. css为ANSI编码
+                <br/>3. html为utf-8编码
+            </p>
+            <h3>解决方案 : 1. 去掉中文注释，用英文注释 2. 统一css 和 html 的编码(推荐)</h3>
+
+        </div>
+
+
+        <!--IE6中 IE6下链接伪类（:hover）CSS背景图片有闪动BUG-->
+        <div id="example05" class="example">
+            <h1>5.IE6下链接伪类（:hover）CSS背景图片有闪动BUG</h1>
+            <p>
+                IE6下链接伪类（:hover）CSS背景图片有闪动BUG，主要原因ie会再一次请求这张图片，或者说图片没被缓存。
+            </p>
+            <h3>解决方案 : 在页面底部添加以下IE6专用代码，让IE6缓存CSS背景图片至本地，这样a:hover时IE6就不会再重新向服务器请求加载背景图片了<br/>
+                <div style="margin-top: 20px;">
+                    document.execCommand(”BackgroundImageCache”, false, true);
+                </div>
+            </h3>
+            <div class="example-main" >
+                <a href="javascript:void(0);" class="bg-img display-inline-block bg-cache"></a>
+            </div>
+
+
+        </div>
+
+
+        <!--IE6中 li在IE中底部空行的BUG-->
+        <div id="example06" class="example">
+            <h1>6.li在IE中底部空行的BUG</h1>
+            <p>
+                IE6下链接伪类（:hover）CSS背景图片有闪动BUG，主要原因ie会再一次请求这张图片，或者说图片没被缓存。
+            </p>
+            <h3>解决方案 : <br/><br/>1.就是在li a 样式中加入zoom:1;<br/>2.就是在li  样式中加入display:inline;
+
+            </h3>
+            <div class="example-main" >
+
+                <ul>
+                    <li><a href="#">第1条连接</a></li>
+                    <li><a href="#">第2条连接</a></li>
+                    <li><a href="#">第3条连接</a></li>
+                </ul>
+
+
+            </div>
+            <div class="example-util yui3-g "  >
+                <a href="javascript:void(0);" type="changeZoom"  status="0"  style="width: 33.33%;" class="btn-100 display-inline-block">zoom:1修正</a><a
+                    href="javascript:void(0);" type="changeMargin"  status="0" style="width: 33.33%;" class="btn-100 display-inline-block">inline修正</a><a
+                    href="javascript:void(0);" type="restore"  status="0" style="width: 33.33%;" class="btn-100 display-inline-block">重置</a>
+            </div>
+
+        </div>
+
+
+
+        <!--IE6中 li在IE中底部空行的BUG-->
+        <div id="example07" class="example">
+            <h1>7.父级使用padding后子元素绝对定位的</h1>
+            <p>
+                在父层使用position:relative;和padding（当然0值除外）后，ie6中层的定位起始坐标是从padding后的位置算起，而其他则从层的真实位置算起，而非被padding改变后的那个位置。这点造成使用position:absolute进行层定位时ie6与其他浏览器的表现不一样。
+            </p>
+            <h3>解决方案 : <br/><br/>1.就是使用固定高度;<br/>2.就是使用csshack,_left针对ie6进行重设。
+
+            </h3>
+            <div class="example-main" >
+
+                <div class="main" style="position:relative; padding:20px; border:2px solid #F00; ">
+                    <div style="position:absolute;   top:0; left:0;  border:1px solid #690;">test box</div>
+                </div>
+
+            </div>
+            <div class="example-util yui3-g "  >
+                <a href="javascript:void(0);" type="changeZoom"  status="0"  style="width: 50%;" class="btn-100 display-inline-block">height修正</a><a
+                    href="javascript:void(0);" type="restore"  status="0" style="width: 50%;" class="btn-100 display-inline-block">重置</a>
+            </div>
+
+        </div>
+
+
+
+        <!--IE6中 IE6下使用滤镜后链接不能点击的BUG-->
+        <div id="example08" class="example">
+            <h1>8.IE6下使用滤镜后链接不能点击的BUG</h1>
+            <p>
+                大家可能都知道IE6下使用DXImageTransform.Microsoft.AlphaImageLoader滤镜（用于PNG32 Alpha透明）后链接不能点击的BUG，大家也都知道只要在a标签上加相对定位的属性（position:relative）就可以点击了。
+            </p>
+            <h3>解决方案 : 设置超链接为relative
+
+            </h3>
+            <div class="example-main" >
+
+                <div class="main filter01">
+                    <a href="javascript:alert('我被点了!');">点我</a>
+                </div>
+
+            </div>
+            <div class="example-util yui3-g "  >
+                <a href="javascript:void(0);" type="changeZoom"  status="0"  style="width: 50%;" class="btn-100 display-inline-block">position:relative</a><a
+                    href="javascript:void(0);" type="restore"  status="0" style="width: 50%;" class="btn-100 display-inline-block">重置</a>
+            </div>
+
+        </div>
+
+
+        <div  style="font-size: 16px;">
+            这里推荐下 <a href="https://code.google.com/p/ie7-js/">IE7.JS</a>
+            使用IE7 js 可以解决很多IE6下的bug 比如 :
+            <ul class="tui-ul">
+                <li>hover 适用于所有的元素,</li>
+                <li>支持fixed</li>
+                <li>支持min/max-width/height,</li>
+                <li>子元素选择器等</li>
+            </ul>
+
+        </div>
+
+
+
+
+    </div>
+
+    <div id="footer" >
+         <h5 style="text-align: center;">特此说明 : 以上出自http://www.css88.com 我只是测试+加上演示效果而已</h5>
+         <h5  style="text-align: center; margin: 20px 0; position: relative;">以上效果请在IE6观看,BY sherlock(920825209)</h5>
+    </div>
+
+
+
+</body>
+</html>

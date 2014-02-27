@@ -1,0 +1,150 @@
+/**
+ * @description 页面常用样式
+ * @autor sherlock
+ */
+
+html{
+    font-size:100%;
+}
+
+body{
+
+}
+
+
+/* 页面一些常用宽度 */
+.width-960{
+    width: 960px;
+}
+.width-1024{
+    width: 1024px;
+}
+.width-980{
+    width: 980px;
+}
+.width-1180{
+    width: 1180px; /* 淘宝新版页面宽度2013 */
+}
+
+
+.bg{
+    background: #f2f2f2; /* 设置统一背景色 */
+}
+
+/* 水平居中 */
+.center{
+    margin: 0 auto;
+}
+
+/* 手型菜单 */
+.pointer{
+    cursor: pointer;
+}
+
+/* 字体加粗 */
+.font-bold{
+    font-weight: bold;
+}
+
+/* 栅格布局  */
+.display-inline-block{
+    display: inline-block;
+    zoom: 1; *display: inline; /* IE < 8: fake inline-block */
+    vertical-align: middle;
+    word-spacing: normal;
+    letter-spacing: normal;
+}
+
+.yui3-g {
+    letter-spacing: -0.31em; /* webkit: collapse white-space between units */
+    *letter-spacing: normal; /* reset IE < 8 */
+    word-spacing: -0.43em; /* IE < 8 && gecko: collapse white-space between units */
+}
+
+/* 清除浮动 */
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+/* Hides from IE-mac \*/
+* html .clearfix {height: 1%;}
+/* End hide from IE-mac */
+
+
+/**
+ * @description 弹出层样式
+ */
+.layer{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 996;
+}
+
+/* 遮罩层 */
+.mask-range{
+    position: absolute;
+    z-index: 999;
+    background: #ffffff;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    filter:alpha(opacity=60);
+    display: none;
+}
+
+
+/**
+ * @description 下划线
+ */
+.hr-list{
+    height: 1px;
+    width: 100%;
+    background-color: #bdbcbc;
+}
+.hrDashed{
+    width: 100%;
+    border-bottom: 1px dashed #57940D;
+}
+
+
+
+/* 文本框默认边框 */
+input{}
+input:focus{
+    border-color:  #50A2FF;
+    box-shadow: 0 0 3px #50A2FF;
+}
+
+
+/* 按钮重置样式 */
+.btnBaseStyle{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	cursor: pointer;
+}
+
+/* 基本图标设置 */
+.icon{
+    background: url("../../../imgs/icon.png");
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+
+
+/* 文本溢出处理 */
+.text-overflow{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.word-normal{
+    word-spacing: normal;
+}
+
