@@ -84,7 +84,7 @@
             <div class="example-main" >
                 <div class="display-inline-block">
                     <span class="display-inline-block">我是标签</span>
-                    <img class="display-inline-block" src="img/opacity.png"/>
+                    <img class="display-inline-block" src="../img/opacity.png"/>
                 </div>
                  <div class="bg-img display-inline-block img01">
 
